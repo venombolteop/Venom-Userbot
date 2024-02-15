@@ -2,9 +2,9 @@ from ... import *
 from ...modules.mongo.raidzone import *
 
 
-@app.on_message(cdx(["lr", "lraid", "loveraid"]))
+@app.on_message(cdx(["fr", "rr", "rraid", "fuckraid"]))
 @sudo_users_only
-async def add_love_raid(client, message):
+async def add_fuck_raid(client, message):
     try:
         aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
         if not message.reply_to_message:
@@ -22,16 +22,16 @@ async def add_love_raid(client, message):
 
         if user_id == message.from_user.id:
             return await aux.edit(
-                "**✘ ʜᴏᴡ ғᴏᴏʟ, ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ᴏᴡɴ ɪᴅ❓**"
+                "**✘ ʜᴏᴡ ғᴏᴏʟ, ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ʀᴇᴘʟʏ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ᴏᴡɴ ɪᴅ❓**"
             )
         
-        lraid = await add_loveraid_user(user_id)
-        if lraid:
+        fraid = await add_fuckraid_user(user_id)
+        if fraid:
             return await aux.edit(
-                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ᴛʜɪs ᴜsᴇʀ.**"
+                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ ʀᴇᴘʟʏ ʀᴀɪᴅ ᴏɴ ᴛʜɪs ᴜsᴇʀ.**"
             )
         return await aux.edit(
-            "**➻ ʜᴇʏ, ʟᴏᴠᴇ ʀᴀɪᴅ ᴀʟʀᴇᴀᴅʏ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
+            "**➻ ʜᴇʏ, ʀᴇᴘʟʏ ʀᴀɪᴅ ᴀʟʀᴇᴀᴅʏ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
         )
     except Exception as e:
         print("ᴇʀʀᴏʀ: `{e}`")
@@ -40,9 +40,9 @@ async def add_love_raid(client, message):
 
 
 
-@app.on_message(cdx(["dlr", "dlraid", "dloveraid"]))
+@app.on_message(cdx(["dfr", "drr", "drraid", "dfuckraid"]))
 @sudo_users_only
-async def del_love_raid(client, message):
+async def del_fuck_raid(client, message):
     try:
         aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
         if not message.reply_to_message:
@@ -60,18 +60,17 @@ async def del_love_raid(client, message):
         
         if user_id == message.from_user.id:
             return await aux.edit(
-                "**✘ ʜᴏᴡ ғᴏᴏʟ, ᴡʜᴇɴ ɪ ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ɪᴅ❓**"
+                "**✘ ʜᴏᴡ ғᴏᴏʟ, ᴡʜᴇɴ ɪ ᴀᴄᴛɪᴠᴀᴛᴇ ʀᴇᴘʟʏ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ɪᴅ❓**"
             )
         
-        lraid = await del_loveraid_user(user_id)
-        if lraid:
+        fraid = await del_fuckraid_user(user_id)
+        if fraid:
             return await aux.edit(
-                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʟᴏᴠᴇ ʀᴀɪᴅ ғʀᴏᴍ ᴛʜɪs ᴜsᴇʀ.**"
+                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʀᴇᴘʟʏ ʀᴀɪᴅ ғʀᴏᴍ ᴛʜɪs ᴜsᴇʀ.**"
             )
         return await aux.edit(
-            "**➻ ʜᴇʏ, ʟᴏᴠᴇ ʀᴀɪᴅ ɴᴏᴛ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
+            "**➻ ʜᴇʏ, ʀᴇᴘʟʏ ʀᴀɪᴅ ɴᴏᴛ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
         )
     except Exception as e:
         print("ᴇʀʀᴏʀ: `{e}`")
         return
-
