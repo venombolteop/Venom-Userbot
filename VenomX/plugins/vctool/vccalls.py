@@ -35,10 +35,10 @@ async def get_vc_call(client, message):
 async def create_video_chat(client, message):
     chat_id = message.chat.id
     try:
-        aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
+        aux = await eor(message, "**🔄 Processing ...**")
         vc_call = await get_vc_call(client, message)
         if vc_call:
-            return await aux.edit("**➻ ᴠᴄ ᴀʟʀᴇᴀᴅʏ ᴀᴄᴛɪᴠᴇ❗**")
+            return await aux.edit("**🤖 VC Already Active❗**")
         peer = await client.resolve_peer(chat_id)
         await client.invoke(
             CreateGroupCall(
@@ -46,9 +46,9 @@ async def create_video_chat(client, message):
                 random_id=client.rnd_id() // 9000000000,
             ),
         )
-        await aux.edit("**➻ sᴜᴄᴄᴇssғᴜʟʟʏ sᴛᴀʀᴛᴇᴅ ᴠᴄ.**")
+        await aux.edit("**🤖 Successfully Started VC. 🌿**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         pass
 
 
@@ -58,16 +58,16 @@ async def create_video_chat(client, message):
 async def discard_video_chat(client, message):
     user_id = message.from_user.id
     try:
-        aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
+        aux = await eor(message, "**🔄 Processing ...**")
         vc_call = await get_vc_call(client, message)
         if not vc_call:
-            return await aux.edit("**➻ ᴠᴄ ɴᴏᴛ sᴛᴀʀᴛᴇᴅ ʏᴇᴛ❗**")
+            return await aux.edit("**🤖 VC Not Started Yet❗**")
         await client.invoke(
             DiscardGroupCall(call=vc_call)
         )
-        return await aux.edit("**➻ sᴜᴄᴄᴇsғᴜʟʟʏ ᴇɴᴅᴇᴅ ᴠᴄ.**")
+        return await aux.edit("**🤖 Succesfully Ended VC. 🌿**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         pass
 
 
@@ -76,24 +76,24 @@ async def discard_video_chat(client, message):
 async def discard_video_chat(client, message):
     chat_id = message.chat.id
     try:
-        aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
+        aux = await eor(message, "**🔄 Processing ...**")
         vc_call = await get_vc_call(client, message)
         if not vc_call:
-            return await aux.edit("**➻ ᴠᴄ ɴᴏᴛ sᴛᴀʀᴛᴇᴅ ʏᴇᴛ❗**")
+            return await aux.edit("**🤖 VC Not Started Yet❗**")
         peer = await client.resolve_peer(chat_id)
         await client.invoke(
             DiscardGroupCall(call=vc_call)
         )
-        await aux.edit("**➻ sᴜᴄᴄᴇsғᴜʟʟʏ ᴇɴᴅᴇᴅ ᴠᴄ.**")
+        await aux.edit("**🤖 Succesfully Ended VC. 🌿**")
         await client.invoke(
             CreateGroupCall(
                 peer=peer,
                 random_id=client.rnd_id() // 9000000000,
             ),
         )
-        return await aux.edit("**➻ sᴜᴄᴄᴇsғᴜʟʟʏ ʀᴇsᴛᴀʀᴛᴇᴅ ᴠᴄ.**")
+        return await aux.edit("**🤖 Succesfully Restarted VC. 🌿**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         pass
 
 
@@ -101,10 +101,10 @@ async def discard_video_chat(client, message):
 
 __NAME__ = "VC"
 __MENU__ = """
-**➻ sᴛᴀʀᴛ ᴏʀ ᴇɴᴅ ᴠᴄ ɪɴ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ
-ᴏʀ ɢʀᴏᴜᴘ ʙʏ sɪᴍᴘʟᴇ ᴄᴏᴍᴍᴀɴᴅs.**
+**Start or End VC in Your Channel
+Or Group By Simple Commands.**
 
-`.svc` - sᴛᴀʀᴛ ᴠᴄ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.
-`.dvc` - ᴇɴᴅ ᴠᴄ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.
-`.rvc` - ʀᴇsᴛᴀʀᴛ ᴠᴄ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ. 
+`.svc` - Start VC in Your Chat.
+`.dvc` - End Vc in Your Chat.
+`.rvc` - Restart VC in Your Chat
 """
