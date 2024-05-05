@@ -7,13 +7,13 @@ async def ping(client, message):
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    m = await eor(message, "**➻ ᴘɪɴɢ !**")
-    await m.edit(f"**➻ ᴘɪɴɢᴇᴅ !\nʟᴀᴛᴇɴᴄʏ:** `{ms}` ms")
+    m = await eor(message, "**🤖 Ping !**")
+    await m.edit(f"**🤖 Pinged !\nLatency:** `{ms}` ms")
 
 
 
 __NAME__ = "Ping"
 __MENU__ = """
-`.ping` - **ᴄʜᴇᴄᴋ ᴘɪɴɢ ʟᴀᴛᴇɴᴄʏ
-ᴏғ ʏᴏᴜʀ ᴜsᴇʀʙᴏᴛ sᴇʀᴠᴇʀ.**
+`.ping` - **Check Ping Latency
+Of Your Userbot Server.**
 """

@@ -56,19 +56,19 @@ async def help_button(client, query):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     top_text = f"""
-**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ
-ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ » {__version__} ✨...
+**🥀 Welcome To Help Menu Of
+VenomX Userbot » {__version__} ✨...
 
-➻ ᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴs ᴛᴏ
-ɢᴇᴛ ᴜsᴇʀʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs.
+Click On Below 💖 Buttons To
+Get Userbot Commands.
 
-➻ ʙᴏᴛ ʙʏ : [ᴠᴇɴᴏᴍ ᴛᴇᴄʜ](https://t.me/VenomOwners).**
+💘Powered By : [Venom](https://t.me/Venomowners).**
 """
     
     if plug_match:
         plugin = plug_match.group(1)
         text = (
-            "**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ:\n✘ ᴘʟᴜɢɪɴ :** {}\n".format(
+            "**🥀 Welcome To Help Menu Of:\n♨️ Plugin :** {}\n".format(
                 plugs[plugin].__NAME__
             )
             + plugs[plugin].__MENU__
@@ -77,7 +77,7 @@ async def help_button(client, query):
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ ʙᴀᴄᴋ", callback_data="help_back"
+                        text="↪️ Back", callback_data="help_back"
                     )
                 ],
             ]
