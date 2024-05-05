@@ -1,17 +1,17 @@
-# Powered By // @AdityaHalder //
+# Powered By // @Venomowners //
 
 __NAME__ = "VcPlayer"
 __MENU__ = """
-**➻ sᴇᴛ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ ᴀɴᴅ ᴘʟᴀʏ ғʀᴏᴍ
-ᴀɴʏᴡʜᴇʀᴇ ʏᴏᴜ ᴡᴀɴᴛ.**
+**Set Stream Chat And Play From
+Anywhere You Want.**
 
-`.cset` - sᴇᴛ ʏᴏᴜʀ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ.
-`.cjoin` - ᴊᴏɪɴ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ ᴠᴄ.
-`.clve` - ʟᴇᴀᴠᴇ ғʀᴏᴍ sᴛʀᴇᴀᴍ ᴠᴄ.
-`.cply` - ᴘʟᴀʏ ʏᴏᴜʀ ᴀᴜᴅɪᴏ sᴏɴɢ.
-`.cvply` - ᴘʟᴀʏ ʏᴏᴜʀ ᴠɪᴅᴇᴏ sᴏɴɢ.
-`.cpse` - ᴘᴀᴜsᴇ ʀᴜɴɴɪɴɢ sᴛʀᴇᴀᴍ.
-`.crsm` - ʀᴇsᴜᴍᴇ ᴘᴀᴜsᴇᴅ sᴛʀᴇᴀᴍ.
-`.cskp` - sᴋɪᴘ ᴛᴏ ɴᴇxᴛ sᴏɴɢ.
-`.cstp` - sᴛᴏᴘ sᴛʀᴇᴀᴍɪɴɢ ᴏɴ ᴠᴄ.
+`.cset` - Set Your Stream Chat.
+`.cjoin` - Join Stream Chat VC.
+`.clve` - Leave From Stream VC.
+`.cply` - Play Your Audio Song.
+`.cvply` - Play Your Video Song.
+`.cpse` - Pause Running Stream.
+`.crsm` - Resume Paused Stream.
+`.cskp` - Skip To Next Song.
+`.cstp` - Stop Streaming On Vc.
 """

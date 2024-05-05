@@ -12,15 +12,15 @@ async def resume_stream(client, message):
         a = await call.get_call(chat_id)
         if a.status == "paused":
             await call.resume_stream(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ ʀᴇsᴜᴍᴇᴅ!**")
+            await eor(message, "**Stream Resumed!**")
         elif a.status == "playing":
-            await eor(message, "**ᴀʟʀᴇᴀᴅʏ ᴘʟᴀʏɪɴɢ!**")
+            await eor(message, "**Already Playing!**")
         elif a.status == "not_playing":
-            await eor(message, "**ɴᴏᴛʜɪɴɢ sᴛʀᴇᴀᴍɪɴɢ!**")
+            await eor(message, "**Nothing Streaming!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
 
 
 @app.on_message(cdz(["crsm", "cresume"]))
@@ -30,20 +30,20 @@ async def resume_stream_chat(client, message):
     chat_id = await get_chat_id(user_id)
     if chat_id == 0:
         return await eor(message,
-            "**➻ ɴᴏ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ sᴇᴛ❗**"
+            "**🥀 No Stream Chat Set❗**"
     )
     try:
         a = await call.get_call(chat_id)
         if a.status == "paused":
             await call.resume_stream(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ ʀᴇsᴜᴍᴇᴅ!**")
+            await eor(message, "**Stream Resumed!**")
         elif a.status == "playing":
-            await eor(message, "**ᴀʟʀᴇᴀᴅʏ ᴘʟᴀʏɪɴɢ!**")
+            await eor(message, "**Already Playing!**")
         elif a.status == "not_playing":
-            await eor(message, "**ɴᴏᴛʜɪɴɢ sᴛʀᴇᴀᴍɪɴɢ!**")
+            await eor(message, "**Nothing Streaming!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
 
   

@@ -22,11 +22,11 @@ async def leave_vc(client, message):
             except QueueEmpty:
                 pass
             await call.leave_group_call(chat_id)
-            await eor(message, "**ʟᴇғᴛ ᴠᴄ!**")
+            await eor(message, "**Left VC!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
 
 
 @app.on_message(cdz(["clve", "cleave", "cleavevc"]))
@@ -36,7 +36,7 @@ async def leave_vc_(client, message):
     chat_id = await get_chat_id(user_id)
     if chat_id == 0:
         return await eor(message,
-            "**➻ ɴᴏ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ sᴇᴛ❗**"
+            "**🥀 No Stream Chat Set❗**"
     )
     try:
         a = await call.get_call(chat_id)
@@ -49,8 +49,8 @@ async def leave_vc_(client, message):
             except QueueEmpty:
                 pass
             await call.leave_group_call(chat_id)
-            await eor(message, "**ʟᴇғᴛ ᴠᴄ!**")
+            await eor(message, "**Left VC!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")

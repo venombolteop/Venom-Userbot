@@ -21,13 +21,13 @@ async def stop_stream(client, message):
             except QueueEmpty:
                 pass
             await call.change_stream(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ sᴛᴏᴘᴘᴇᴅ!**")
+            await eor(message, "**Stream Stopped!**")
         elif a.status == "not_playing":
-            await eor(message, "**ɴᴏᴛʜɪɴɢ ᴘʟᴀʏɪɴɢ!**")
+            await eor(message, "**Nothing Playing!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         
         
 @app.on_message(cdz(["cstp"]))
@@ -37,7 +37,7 @@ async def stop_stream_chat(client, message):
     chat_id = await get_chat_id(user_id)
     if chat_id == 0:
         return await eor(message,
-            "**➻ ɴᴏ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ sᴇᴛ❗**"
+            "**🥀 No Stream Chat Set❗**"
     )
     try:
         a = await call.get_call(chat_id)
@@ -49,13 +49,13 @@ async def stop_stream_chat(client, message):
             except QueueEmpty:
                 pass
             await call.change_stream(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ sᴛᴏᴘᴘᴇᴅ!**")
+            await eor(message, "**Stream Stopped!**")
         elif a.status == "not_playing":
-            await eor(message, "**ɴᴏᴛʜɪɴɢ ᴘʟᴀʏɪɴɢ!**")
+            await eor(message, "**Nothing Playing!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         
 
 
@@ -74,11 +74,11 @@ async def close_stream_(client, message):
             except QueueEmpty:
                 pass
             await call.leave_group_call(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ!**")
+            await eor(message, "**Stream Ended!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         
 
 
@@ -89,7 +89,7 @@ async def close_stream_chat(client, message):
     chat_id = await get_chat_id(user_id)
     if chat_id == 0:
         return await eor(message,
-            "**➻ ɴᴏ sᴛʀᴇᴀᴍ ᴄʜᴀᴛ sᴇᴛ❗**"
+            "**🥀 No Stream Chat Set❗**"
     )
     try:
         a = await call.get_call(chat_id)
@@ -102,9 +102,9 @@ async def close_stream_chat(client, message):
             except QueueEmpty:
                 pass
             await call.leave_group_call(chat_id)
-            await eor(message, "**sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ!**")
+            await eor(message, "**Stream Ended!**")
     except GroupCallNotFound:
-        await eor(message, "**ɪ ᴀᴍ ɴᴏᴛ ɪɴ ᴠᴄ!**")
+        await eor(message, "**I am Not in VC!**")
     except Exception as e:
-        print(f"ᴇʀʀᴏʀ: {e}")
+        print(f"Error: {e}")
         
