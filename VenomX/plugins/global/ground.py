@@ -1,21 +1,21 @@
-# Powered By // @VenomOwners //
+# Powered By // @Venomowners //
 
 __NAME__ = "Global"
 __MENU__ = """
-**ʀᴇᴘʟʏ ᴏɴ ᴛᴀʀɢᴇᴛ ᴜsᴇʀs ᴍᴇssᴀɢᴇs
-ᴛᴏ ɢʟᴏʙᴀʟʟʏ ᴛᴀᴘᴘᴇᴅ.**
+**Reply On Target Users Messages
+To Globally Tapped.**
 
-`.gdl` - ᴅᴇʟᴇᴛᴇ ᴜsᴇʀ ᴍᴇssᴀɢᴇs.
-`.ugdl` - sᴛᴏᴘ ᴍᴇssᴀɢᴇ ᴅᴇʟᴇᴛᴇ.
+`.gdl` - Delete User Messages.
+`.ugdl` - Stop Message Delete.
 
-`.gbn` - ʙᴀɴ ᴀɴ ᴜsᴇʀ ɢʟᴏʙᴀʟʟʏ.
-`.ugbn` - ʀᴇᴍᴏᴠᴇ ɢʟᴏʙᴀʟ ʙᴀɴ.
+`.gbn` - Ban An User Globally.
+`.ugbn` - Remove Global Ban.
 
-`.gmt` - ᴍᴜᴛᴇ ᴀɴ ᴜsᴇʀ ɢʟᴏʙᴀʟʟʏ.
-`.ugmt` - ʀᴇᴍᴏᴠᴇ ɢʟᴏʙᴀʟ ᴍᴜᴛᴇ.
+`.gmt` - Mute An User Gkobally.
+`.ugmt` - Remove Global Mute.
 
-**sᴏᴍᴇ ᴍᴏʀᴇ ᴄᴏᴍᴍᴀɴᴅs:**
-➻ ɢʟᴏʙᴀʟ ᴅᴇʟᴇᴛᴇ: .gdel | .ungdel
-➻ ɢʟᴏʙᴀʟ ʙᴀɴ: .gban | .ungban
-➻ ɢʟᴏʙᴀʟ ᴍᴜᴛᴇ: .gmute | .ungmute
+**Some More Commands:**
+Global Delete: .gdel | .ungdel
+Global Ban: .gban | .ungban
+Global Mute: .gmute | .ungmute
 """
