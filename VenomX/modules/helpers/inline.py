@@ -16,17 +16,17 @@ async def help_menu_logo(answer):
     answer.append(
         InlineQueryResultPhoto(
             photo_url=f"{thumb_image}",
-            title="➻ ʜᴇʟᴘ ᴍᴇɴᴜ ✨",
+            title="🥀 Help Menu ✨",
             thumb_url=f"{thumb_image}",
-            description=f"➻ ᴏᴘᴇɴ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ ✨...",
+            description=f"🥀 Open Help Menu Of VenomX-Userbot ✨...",
             caption=f"""
-**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ
-ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ » {__version__} ✨...
+**🥀 Welcome To Help Menu Of
+VenomX Userbot » {__version__} ✨...
 
-➻ ᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴs ᴛᴏ
-ɢᴇᴛ ᴜsᴇʀʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs.
+Click On Below 💖 Buttons To
+Get Userbot Commands.
 
-➻ ᴜsᴇʀʙᴏᴛ ʙʏ : [ᴠᴇɴᴏᴍ ᴛᴇᴄʜ](https://t.me/VenomOwners).**
+💕Powered By : [Venom](https://t.me/Venomowners).**
             """,
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -39,15 +39,15 @@ async def help_menu_text(answer):
     button = paginate_plugins(0, plugs, "help")
     answer.append(
         InlineQueryResultArticle(
-            title="➻ ʜᴇʟᴘ ᴍᴇɴᴜ ✨",
+            title="🥀 Help Menu ✨",
             input_message_content=InputTextMessageContent(f"""
-**➻ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ʜᴇʟᴘ ᴍᴇɴᴜ ᴏғ
-ᴠᴇɴᴏᴍ ✘ ᴜsᴇʀʙᴏᴛ » {__version__} ✨...
+**🥀 Welcome To Help Menu Of
+VenomX Userbot » {__version__} ✨...
 
-➻ ᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴs ᴛᴏ
-ɢᴇᴛ ᴜsᴇʀʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs.
+Click On Below 💓 Buttons To
+Get Userbot Commands.
 
-➻ ᴜsᴇʀʙᴏᴛ ʙʏ : [ᴠᴇɴᴏᴍ ᴛᴇᴄʜ](https://t.me/VenomOwners).**""",
+💘Powered By : [Venom](https://t.me/VenomOwners).**""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
