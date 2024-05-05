@@ -1,7 +1,7 @@
 __NAME__ = "History"
 __MENU__ = """
-`.history` - **ɢᴇᴛ ᴀʟʟ ɴᴀᴍᴇs
-ᴀɴᴅ ᴜsᴇʀɴᴀᴍᴇs ʜɪsᴛᴏʀʏ.**
+`.history` - **Get All Names
+and Usernames History.**
 
-**➻ ᴀʟᴛᴇʀɴᴀᴛᴇ ᴄᴏᴍᴍᴀɴᴅ:** '`whois`'
+**Alternate Command:** '`whois`'
 """

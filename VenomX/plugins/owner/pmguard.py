@@ -11,20 +11,20 @@ from ...modules.mongo.pmguard import *
 async def pm_on_off(client, message):
     if len(message.command) < 2:
         return await eor(message,
-            "ʜᴇʏ, ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴏ ?\n\nᴇxᴀᴍᴘʟᴇ: `.pm on` | `.pm off`")
-    aux = await eor(message, "ᴘʀᴏᴄᴇssɪɴɢ ...")
+            "Hey, What You Want To Do ?\n\nExample: `.pm on` | `.pm off`")
+    aux = await eor(message, "Processing ...")
     query = message.text.split(None, 1)[1].lower()
     if query == "on":
         set_permit = await set_pm_permit(True)
         if set_permit:
-            return await aux.edit("ᴘᴍ ᴘᴇʀᴍɪᴛ ᴛᴜʀɴᴇᴅ ᴏɴ !")
-        return await aux.edit("ᴘᴍ ᴘᴇʀᴍɪᴛ ᴀʟʀᴇᴀᴅʏ ᴏɴ !")
+            return await aux.edit("PM Permit Turned On !")
+        return await aux.edit("PM Permit Already On !")
         
     elif query == "off":
         set_permit = await set_pm_permit(False)
         if set_permit:
-            return await aux.edit("ᴘᴍ ᴘᴇʀᴍɪᴛ ᴛᴜʀɴᴇᴅ ᴏғғ !")
-        return await aux.edit("ᴘᴍ ᴘᴇʀᴍɪᴛ ᴀʟʀᴇᴀᴅʏ ᴏғғ !")
+            return await aux.edit("PM Permit Turned Off !")
+        return await aux.edit("PM Permit Already Off !")
         
 
 
@@ -37,7 +37,7 @@ async def pm_approve(client, message):
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            return await message.edit("ʏᴏᴜ ᴄᴀɴ'ᴛ ᴅᴏ ᴛʜɪs ᴛᴏ ʏᴏᴜʀsᴇʟғ.")
+            return await message.edit("You can't do that to yourself.")
     permit = await add_approved_user(uid)
     if permit:
         if str(uid) in check and str(uid) in flood:
@@ -46,9 +46,9 @@ async def pm_approve(client, message):
                 flood[str(uid)] = 0
             except BaseException:
                 pass
-        await message.edit("sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴘᴘʀᴏᴠᴇᴅ.")
+        await message.edit("Successfully Approved.")
     else:
-        await message.edit("ᴛʜɪs ᴜsᴇʀ ᴀʟʀᴇᴀᴅʏ ᴀᴘᴘʀᴏᴠᴇᴅ.")
+        await message.edit("This user already approved.")
     await asyncio.sleep(2)
     return await message.delete()
 
@@ -60,12 +60,12 @@ async def pm_disapprove(client, message):
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            return await message.edit("ʏᴏᴜ ᴄᴀɴ'ᴛ ᴅᴏ ᴛʜɪs ᴛᴏ ʏᴏᴜʀsᴇʟғ.")
+            return await message.edit("You can't do that to yourself.")
     permit = await del_approved_user(uid)
     if permit:
-        await message.edit("sᴜᴄᴄᴇssғᴜʟʟʏ ᴅɪsᴀᴘᴘʀᴏᴠᴇᴅ.")
+        await message.edit("Successfully Disapproved.")
     else:
-        await message.edit("ᴛʜɪs ᴜsᴇʀ ɪs ɴᴏᴛ ᴀᴘᴘʀᴏᴠᴇᴅ !")
+        await message.edit("This user is not approved !")
     await asyncio.sleep(2)
     return await message.delete()
 
@@ -76,13 +76,13 @@ async def block_user_func(client, message):
         user_id = message.chat.id
     elif message.chat.type != ChatType.PRIVATE:
         if not message.reply_to_message:
-            return await message.edit("ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ ᴍᴇssᴀɢᴇ.")
+            return await message.edit("Reply to user message.")
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            return await message.edit("ʏᴏᴜ ᴄᴀɴ'ᴛ ᴅᴏ ᴛʜɪs ᴛᴏ ʏᴏᴜʀsᴇʟғ.")
+            return await message.edit("You can't do that to yourself.")
         user_id = replied_user.id
-    await message.edit("sᴜᴄᴄᴇssғᴜʟʟʏ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀ!!!")
+    await message.edit("Successfully Block User!!!")
     await client.block_user(user_id)
 
 
@@ -92,34 +92,34 @@ async def unblock_user_func(client, message):
         user_id = message.chat.id
     elif message.chat.type != ChatType.PRIVATE:
         if not message.reply_to_message:
-            return await message.edit("  ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ ᴍᴇssᴀɢᴇ.")
+            return await message.edit("Reply to user message.")
         reply = message.reply_to_message
         replied_user = reply.from_user
         if replied_user.is_self:
-            return await message.edit("ʏᴏᴜ ᴄᴀɴ'ᴛ ᴅᴏ ᴛʜɪs ᴛᴏ ʏᴏᴜʀsᴇʟғ.")
+            return await message.edit("You can't do that to yourself.")
         user_id = replied_user.id
     await client.unblock_user(user_id)
-    await message.edit("ᴜɴʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀ sᴜᴄᴄᴇssғᴜʟʟʏ !")
+    await message.edit("Unblock User Successfully !")
 
 
 __NAME__ = "Guard"
 __MENU__ = f"""
-**➻ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ sᴇᴄᴜʀɪᴛʏ sʏsᴛᴇᴍ
-ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ғʀᴏᴍ ᴅᴍ sᴘᴀᴍs ✨.**
+**🥀 An Advanced Security System
+To Protect From DM Spams ✨.**
 
-`.pmguard [`on`|off`] - ᴀᴄᴛɪᴠᴀᴛᴇ
-ᴏʀ ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇ ᴘᴍ ɢᴜᴀʀᴅ sᴇᴄᴜʀɪᴛʏ.
+`.pmguard [`on`|off`] - Activate
+or Deactivate PM Guard Security.
 
-`.approve` - ᴀᴘᴘʀᴏᴠᴇ ᴀɴ ᴜsᴇʀ ғᴏʀ
-ᴄʜᴀᴛ ᴡɪᴛʜɪɴ ᴅᴍ.
+`.approve` - Approve An User For
+Chat With in DM.
 
-`.disapprove` - ᴛᴏ ᴅɪsᴀᴘᴘʀᴏᴠᴇ ᴀɴ
-ᴜsᴇʀ (Remove From Allowed List).
+`.disapprove` - To Disapprove An
+User (Remove From Allowed List).
 
-`.block` - ʙʟᴏᴄᴋ ᴀɴ ᴜsᴇʀ ᴀɴᴅ ᴀᴅᴅ
-ɪɴ ʏᴏᴜʀ ʙʟᴏᴄᴋʟɪsᴛ.
+`.block` - Block An User And Add
+in Your Blocklist.
 
-`.unblock` - ᴜɴʙʟᴏᴄᴋ ᴀɴ ᴜsᴇʀ ᴀɴᴅ
-ʀᴇᴍᴏᴠᴇ ғʀᴏᴍ ʏᴏᴜʀ ʙʟᴏᴄᴋʟɪsᴛ.
+`.unblock` - Unblock An User And
+Renove From Your Blocklist.
 """
 

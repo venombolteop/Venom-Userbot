@@ -23,11 +23,11 @@ async def self_media(client, message):
 
 __NAME__ = "Self"
 __MENU__ = f"""
-**➻ ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴᴅ sᴀᴠᴇ sᴇʟғ\n» ᴅᴇsᴛʀᴜᴄᴛᴇᴅ ᴘʜᴏᴛᴏ ᴏʀ ᴠɪᴅᴇᴏ
-ᴛᴏ ʏᴏᴜʀ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇ ✨**
+**🥀 Download And Save Self\n» Destructed Photo Or Video
+To Your Saved Message ✨**
 
-`.op` - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʙʏ\nʀᴇᴘʟʏɪɴɢ ᴏɴ sᴇʟғ-ᴅᴇsᴛʀᴜᴄᴛᴇᴅ
-ᴘʜᴏᴛᴏ/ᴠɪᴅᴇᴏs.
+`.op` - Use This Command By\nReplying On Self-Destructed
+Photo/Video.
 
-**➻ ᴍᴏʀᴇ ᴄᴏᴍᴍᴀɴᴅs:**\n=> [🥰, wow, super, 😍]
+**🌿 More Commands:**\n=> [🥰, wow, super, 😍]
 """
