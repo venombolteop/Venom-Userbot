@@ -1,5 +1,5 @@
 # Ai-Userbot Version
-__version__ = "v2.1.0"
+__version__ = "v0.0.1"
 
 
 # All Clients
