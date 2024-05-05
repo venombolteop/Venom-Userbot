@@ -6,11 +6,11 @@ from ...modules.mongo.raidzone import *
 @sudo_users_only
 async def add_love_raid(client, message):
     try:
-        aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
+        aux = await eor(message, "**🔄 Processing ...**")
         if not message.reply_to_message:
             if len(message.command) != 2:
                 return await aux.edit(
-                    "**➻ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ username/user_id.**"
+                    "**🤖 Reply to a user's message or give username/user_id.**"
                 )
             user = message.text.split(None, 1)[1]
             if "@" in user:
@@ -22,19 +22,19 @@ async def add_love_raid(client, message):
 
         if user_id == message.from_user.id:
             return await aux.edit(
-                "**✘ ʜᴏᴡ ғᴏᴏʟ, ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ᴏᴡɴ ɪᴅ❓**"
+                "**🤣 How Fool, You Want To Activate Love Raid On Your Own ID❓**"
             )
         
         lraid = await add_loveraid_user(user_id)
         if lraid:
             return await aux.edit(
-                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ᴛʜɪs ᴜsᴇʀ.**"
+                "**🤖 Successfully Added Love Raid On This User.**"
             )
         return await aux.edit(
-            "**➻ ʜᴇʏ, ʟᴏᴠᴇ ʀᴀɪᴅ ᴀʟʀᴇᴀᴅʏ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
+            "**🤖 Hey, Love Raid Already Active On This User❗**"
         )
     except Exception as e:
-        print("ᴇʀʀᴏʀ: `{e}`")
+        print("Error: `{e}`")
         return
 
 
@@ -44,11 +44,11 @@ async def add_love_raid(client, message):
 @sudo_users_only
 async def del_love_raid(client, message):
     try:
-        aux = await eor(message, "**🔄 ᴘʀᴏᴄᴇssɪɴɢ ...**")
+        aux = await eor(message, "**🔄 Processing ...**")
         if not message.reply_to_message:
             if len(message.command) != 2:
                 return await aux.edit(
-                    "**➻ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ username/user_id.**"
+                    "**🤖 Reply to a user's message or give username/user_id.**"
                 )
             user = message.text.split(None, 1)[1]
             if "@" in user:
@@ -60,18 +60,18 @@ async def del_love_raid(client, message):
         
         if user_id == message.from_user.id:
             return await aux.edit(
-                "**✘ ʜᴏᴡ ғᴏᴏʟ, ᴡʜᴇɴ ɪ ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ ᴏɴ ʏᴏᴜʀ ɪᴅ❓**"
+                "**🤣 How Fool, When I Activate Love Raid On Your ID❓**"
             )
         
         lraid = await del_loveraid_user(user_id)
         if lraid:
             return await aux.edit(
-                "**➻ sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ʟᴏᴠᴇ ʀᴀɪᴅ ғʀᴏᴍ ᴛʜɪs ᴜsᴇʀ.**"
+                "**🤖 Successfully Removed Love Raid From This User.**"
             )
         return await aux.edit(
-            "**➻ ʜᴇʏ, ʟᴏᴠᴇ ʀᴀɪᴅ ɴᴏᴛ ᴀᴄᴛɪᴠᴇ ᴏɴ ᴛʜɪs ᴜsᴇʀ❗**"
+            "**🤖 Hey, Love Raid Not Active On This User❗**"
         )
     except Exception as e:
-        print("ᴇʀʀᴏʀ: `{e}`")
+        print("Error: `{e}`")
         return
 

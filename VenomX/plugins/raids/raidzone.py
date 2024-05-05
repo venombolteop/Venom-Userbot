@@ -1,17 +1,17 @@
-# Powered By // @VenomOwners //
+# Powered By // @Venomowners //
 
 __NAME__ = "Raids"
 __MENU__ = """
-**➻ ʀᴇᴘʟʏ ᴏɴ ᴛᴀʀɢᴇᴛ ᴜsᴇʀs ᴍᴇssᴀɢᴇs
-ᴛᴏ ᴀᴄᴛɪᴠᴀᴛᴇ ᴏʀ ᴅᴇᴀᴄᴛɪᴠᴀᴛᴇ.**
+**Reply On Target Users Messages
+To Activate Or Deactivate.**
 
-`.cr` - ᴀᴄᴛɪᴠᴀᴛᴇ ᴄʜᴀᴛ ʀᴀɪᴅ.
-`.dcr` - ᴅᴇ-ᴀᴄᴛɪᴠᴀᴛᴇ ᴄʜᴀᴛ ʀᴀɪᴅ.
+`.cr` - Activate Chat Raid.
+`.dcr` - De-Activate Chat Raid.
 
-`.fr` - ᴀᴄᴛɪᴠᴀᴛᴇ ғᴜᴄᴋ ʀᴀɪᴅ.
-`.dfr` - ᴅᴇ-ᴀᴄᴛɪᴠᴀᴛᴇ ғᴜᴄᴋ ʀᴀɪᴅ.
+`.fr` - Activate Fuck Raid.
+`.dfr` - De-Activate Fuck Raid.
 
-`.lr` - ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ.
-`.dlr` - ᴅᴇ-ᴀᴄᴛɪᴠᴀᴛᴇ ʟᴏᴠᴇ ʀᴀɪᴅ.
+`.lr` - Activate Love Raid.
+`.dlr` - De-Activate Love Raid.
 """
 
