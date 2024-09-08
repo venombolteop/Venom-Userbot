@@ -1,3 +1,4 @@
+import asyncio
 from VenomX import config
 from VenomX.modules import queues
 from VenomX.modules.clients import app, call
