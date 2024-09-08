@@ -35,22 +35,22 @@ async def eor(message: Message, *args, **kwargs) -> Message:
 
 
 async def call_decorators():
-    @call.on_event("kicked")
-    @call.on_event("closed_voice_chat")
-    @call.on_event("left")
-    async def stream_services_handler(client, chat_id: int):
-        queue_empty = await queues.is_queue_empty(chat_id)
-        if not queue_empty:
+    @app.on_message(filters.command('start'))
+    async def handle_start(client, message: Message):
+        chat_id = message.chat.id
+        if not await queues.is_queue_empty(chat_id):
             await queues.clear_queue(chat_id)
-        try:
-            return await call.leave_group_call(chat_id)
-        except Exception as e:
-            print(f"Error leaving group call: {e}")
-            return
+        await call.leave_group_call(chat_id)
 
+    @app.on_message(filters.command('stop'))
+    async def handle_stop(client, message: Message):
+        chat_id = message.chat.id
+        if not await queues.is_queue_empty(chat_id):
+            await queues.clear_queue(chat_id)
+        await call.leave_group_call(chat_id)
 
-    @call.on_event("stream_end")
-    async def stream_end_handler_(client, update: Update):
+    @call.on_stream_end()
+    async def stream_end_handler(client, update: Update):
         if not isinstance(update, StreamAudioEnded):
             return
         chat_id = update.chat_id
@@ -58,7 +58,7 @@ async def call_decorators():
         queue_empty = await queues.is_queue_empty(chat_id)
         if queue_empty:
             try:
-                return await call.leave_group_call(chat_id)
+                await call.leave_group_call(chat_id)
             except Exception as e:
                 print(f"Error leaving group call: {e}")
                 return
