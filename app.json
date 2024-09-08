@@ -1,15 +1,15 @@
 {
-    "name": "Venom-Userbot",
-    "description": "Venom-Userbot is an advanced & powerful multi-featured Telegram userbot.",
+    "name": "VenomX-Userbot",
+    "description": "VenomX-Userbot is a powerful, advanced, multi-featured Telegram userbot.",
     "logo": "https://te.legra.ph/file/0b373de1c657129297c39.jpg",
     "keywords": [
-        "venom-userbot",
-        "telegram-userbot",
-        "telegram-music-bot",
-        "telegram-video-bot"
+      "userbot",
+      "plugins",
+      "modules",
+      "music",
+      "VenomX"
     ],
     "repository": "https://github.com/venombolteop/Venom-Userbot",
-    "stack": "container",
     "env": {
         "API_ID": {
             "description": "Enter your api id here.",
@@ -31,21 +31,10 @@
             "value": "",
             "required": true
         },
-        "MONGO_DB_URL": {
-            "description": "Enter your mongodb url here.",
-            "value": "",
-            "required": true
-        },
         "LOG_GROUP_ID": {
             "description": "Enter your private log group id here.",
             "value": "",
             "required": true
-        }
-    },
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "standard-2x"
         }
     },
     "buildpacks": [
