@@ -1,10 +1,8 @@
 from VenomX import app, call, cdz
 from pyrogram import filters
-from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
-from pytgcalls.types.stream import AudioPiped, VideoPiped
 from pytgcalls.types import AudioQuality, VideoQuality
-from VenomX import get_media_stream  # Make sure this function is defined to handle stream extraction
-
+from pytgcalls.types.stream import AudioStream, VideoStream
+from VenomX import get_media_stream  # Ensure this function is correctly defined for stream extraction
 
 @app.on_message(cdz(["stream"]) & ~filters.private)
 async def test_media_stream(client, message):
@@ -23,5 +21,7 @@ async def test_media_stream(client, message):
     except Exception:
         # If already joined, change the stream
         await call.change_stream(chat_id, stream)
-    except:
+    except Exception as e:
+        # Handle any other exceptions
+        print(f"Error: {e}")
         return
