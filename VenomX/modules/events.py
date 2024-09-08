@@ -8,13 +8,11 @@ from pytgcalls.types import Update
 from pytgcalls.types.stream import StreamAudioEnded
 from typing import Union, List
 
-
 def cdx(commands: Union[str, List[str]]):
     return filters.command(commands, config.COMMAND_PREFIXES)
 
 def cdz(commands: Union[str, List[str]]):
     return filters.command(commands, config.COMMAND_HANDLERS)
-
 
 async def eor(message: Message, *args, **kwargs) -> Message:
     try:
@@ -32,7 +30,6 @@ async def eor(message: Message, *args, **kwargs) -> Message:
     
     return await msg(*args, **kwargs)
 
-
 async def call_decorators():
     @call.on_kicked()
     @call.on_closed_voice_chat()
@@ -42,10 +39,9 @@ async def call_decorators():
         if not queue_empty:
             await queues.clear_queue(chat_id)
         try:
-            return await call.leave_group_call(chat_id)
-        except:
-            return
-
+            await call.leave_group_call(chat_id)
+        except Exception as e:
+            print(f"Error leaving group call: {e}")
 
     @call.on_stream_end()
     async def stream_end_handler_(client, update: Update):
@@ -56,13 +52,13 @@ async def call_decorators():
         queue_empty = await queues.is_queue_empty(chat_id)
         if queue_empty:
             try:
-                return await call.leave_group_call(chat_id)
-            except:
-                return
+                await call.leave_group_call(chat_id)
+            except Exception as e:
+                print(f"Error leaving group call: {e}")
+            return
         check = await queues.get_from_queue(chat_id)
         media = check["media"]
         type = check["type"]
         stream = await get_media_stream(media, type)
         await call.change_stream(chat_id, stream)
-        return await app.send_message("Streaming ...")
-
+        await app.send_message(chat_id, "Streaming ...")
