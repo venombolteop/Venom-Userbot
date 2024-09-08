@@ -1,44 +1,33 @@
-import asyncio, importlib
+import asyncio, pyrogram
 
-from pytgcalls import idle
-
-from . import logs, plugs, vars
-from .plugins import ALL_PLUGINS
-from .modules.clients.clients import run_async_clients
-from .modules.clients.enums import run_async_enums
-from .modules.helpers.inline import run_async_inline
-from .modules.utilities.tgcalls import run_async_calls
+from VenomX import app, bot, call
+from VenomX import call_decorators
+from VenomX.plugins import load_plugins
 
 
-async def main():
-    await run_async_clients()
-    for all_plugin in ALL_PLUGINS:
-        imported_plugin = importlib.import_module(
-            "VenomX.plugins" + all_plugin
+loop = asyncio.get_event_loop()
+
+async def init():
+    print("Starting all clients ...")
+    try:
+        await app.start()
+        print("User client started.")
+        await bot.start()
+        print("Bot client started.")
+        await call.start()
+        print("PyTgCalls client started.")
+        await load_plugins()
+        print("All plugins loaded.")
+        await call_decorators()
+    except Exception as e:
+        return print(
+            f"Error: {e}"
         )
-        if (hasattr
-            (
-                imported_plugin, "__NAME__"
-            ) and imported_plugin.__NAME__
-        ):
-            imported_plugin.__NAME__ = imported_plugin.__NAME__
-            if (
-                hasattr(
-                    imported_plugin, "__MENU__"
-                ) and imported_plugin.__MENU__
-            ):
-                plugs[imported_plugin.__NAME__.lower()
-                ] = imported_plugin
-    await run_async_enums()
-    logs.info(">> Successfully Imported All Plugins.")
-    await run_async_inline()
-    logs.info("Successfully Deployed !!")
-    await run_async_calls()
-    logs.info("Do Visit - @VenomOwners")
-    await idle()
+    print("VenomX Now Started !!")
+    await pyrogram.idle()
 
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-    print("Userbot Stopped !\nGoodBye ...")
+    loop.run_until_complete(init())
+    print("VenomX Now Stopped !!")
+
