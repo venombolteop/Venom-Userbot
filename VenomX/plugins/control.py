@@ -3,9 +3,7 @@ from VenomX import add_to_queue, get_from_queue, get_media_stream
 from VenomX import clear_queue, is_queue_empty, task_done
 from pyrogram import filters
 from pytgcalls.exceptions import GroupCallNotFound
-from pytgcalls.types import StreamAudioEnded, StreamVideoEnded
-from pytgcalls.types.stream import StreamType
-
+from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 
 @app.on_message(cdz(["pse", "pause", "vpse", "vpause"]) & ~filters.private)
 async def pause_stream(client, message):
@@ -14,16 +12,15 @@ async def pause_stream(client, message):
     chat_id = message.chat.id
     try:
         call_info = await call.get_call(chat_id)
-        if call_info.is_playing:
+        if call_info.status == "playing":
             await call.pause_stream(chat_id)
             return await eor(message, "**Stream Paused!**")
-        elif call_info.is_paused:
+        elif call_info.status == "paused":
             return await eor(message, "**Already Paused!**")
         else:
             return await eor(message, "**Nothing Streaming!**")
     except GroupCallNotFound:
         return await eor(message, "**I am Not in VC!**")
-
 
 @app.on_message(cdz(["rsm", "resume", "vrsm", "vresume"]) & ~filters.private)
 async def resume_stream(client, message):
@@ -32,16 +29,15 @@ async def resume_stream(client, message):
     chat_id = message.chat.id
     try:
         call_info = await call.get_call(chat_id)
-        if call_info.is_paused:
+        if call_info.status == "paused":
             await call.resume_stream(chat_id)
             return await eor(message, "**Stream Resumed!**")
-        elif call_info.is_playing:
+        elif call_info.status == "playing":
             return await eor(message, "**Already Playing!**")
         else:
             return await eor(message, "**Nothing Streaming!**")
     except GroupCallNotFound:
         return await eor(message, "**I am Not in VC!**")
-
 
 @app.on_message(cdz(["skp", "skip", "vskp", "vskip"]) & ~filters.private)
 async def skip_stream(client, message):
@@ -50,7 +46,7 @@ async def skip_stream(client, message):
     chat_id = message.chat.id
     try:
         call_info = await call.get_call(chat_id)
-        if call_info.is_playing or call_info.is_paused:
+        if call_info.status == "playing" or call_info.status == "paused":
             await task_done(chat_id)
             queue_empty = await is_queue_empty(chat_id)
             if queue_empty:
@@ -73,7 +69,6 @@ async def skip_stream(client, message):
     except GroupCallNotFound:
         return await eor(message, "**I am Not in VC!**")
 
-
 @app.on_message(cdz(["stp", "stop", "end", "vend"]) & ~filters.private)
 async def cease_stream(client, message):
     if message.sender_chat:
@@ -81,7 +76,7 @@ async def cease_stream(client, message):
     chat_id = message.chat.id
     try:
         call_info = await call.get_call(chat_id)
-        if call_info.is_playing or call_info.is_paused:
+        if call_info.status == "playing" or call_info.status == "paused":
             await clear_queue(chat_id)
             await call.leave_group_call(chat_id)
             return await eor(message, "**Stream Ended!**")
