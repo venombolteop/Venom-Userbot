@@ -4,7 +4,7 @@ from VenomX.modules.clients import app, call
 from VenomX.modules.streams import get_media_stream
 from pyrogram import filters
 from pyrogram.types import Message
-from pytgcalls import GroupCall
+from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
 from pytgcalls.types.stream import StreamAudioEnded
 from typing import Union, List
