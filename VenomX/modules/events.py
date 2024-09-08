@@ -62,3 +62,4 @@ async def call_decorators():
         stream = await get_media_stream(media, type)
         await call.change_stream(chat_id, stream)
         await app.send_message(chat_id, "Streaming ...")
+
