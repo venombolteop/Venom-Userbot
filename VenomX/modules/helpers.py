@@ -11,6 +11,7 @@ async def download_media_file(link: str, type: str):
             "nocheckcertificate": True,
             "quiet": True,
             "no_warnings": True,
+            "cookiefile": "cookies.txt",
         }
 
     elif type == "Video":
@@ -21,6 +22,7 @@ async def download_media_file(link: str, type: str):
             "nocheckcertificate": True,
             "quiet": True,
             "no_warnings": True,
+            "cookiefile": "cookies.txt",
         }
         
     x = yt_dlp.YoutubeDL(ydl_opts)
