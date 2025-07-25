@@ -64,6 +64,7 @@ async def get_stream_link(link: str):
         "-g",
         "-f",
         "bestvideo+bestaudio/best",
+        "--cookies", "cookies.txt",
         f"{link}",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
