@@ -6,7 +6,7 @@ from VenomX import download_media_file
 from VenomX import get_media_info, get_media_stream
 from pyrogram import filters
 from pytgcalls.exceptions import AlreadyJoinedError, GroupCallNotFound
-from pytgcalls.exceptions import NoActiveGroupCall, TelegramServerError
+from pytgcalls.exceptions import NoActiveGroupCall
 
 
 @app.on_message(cdz(["ply", "play", "vply", "vplay"]) & ~filters.private)
@@ -66,8 +66,6 @@ async def start_stream(client, message):
             return await aux.edit("**No Active VC !**")
         except AlreadyJoinedError:
             return await aux.edit("**Assistant Already in VC !**")
-        except TelegramServerError:
-            return await aux.edit("**Telegram Server Error !**")
         except Exception as e:
             print(f"Error: {e}")
             return await aux.edit("**Please Try Again !**")
